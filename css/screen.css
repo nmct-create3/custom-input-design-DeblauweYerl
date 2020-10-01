@@ -45,7 +45,7 @@
     --global-borderWidth: 1px;
 
     /* transitions */
-    --global-transitionTiming-alpha: .1s ease-out;
+    --global-transitionTiming-alpha: .05s ease-out;
 
     /* Baseline settings */
     --global-baseline: 8px;         
@@ -63,7 +63,7 @@
     --global-input-color: var(--global-color-neutral-xxxx-dark);
     --global-input-borderColor: var(--global-color-neutral-xxx-light);
     --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
-    --global-input-focus-borderColor: var(--global-color-alpha);
+    --global-input-focus-borderColor: var(--global-color-alpha-x-light);
     --global-input-boxShadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
 }
 
@@ -640,7 +640,11 @@ input::placeholder {
 
 .c-custom-option {
     display: flex;
+    --custom-option-borderColor: var(--global-input-borderColor);
+    --custom-option-focus-borderColor: var(--global-input-focus-borderColor);
+    --custom-option-hover-borderColor: var(--global-input-hover-borderColor);
 }
+
 
 .c-custom-option__fake-input {
     display: flex;
@@ -648,16 +652,25 @@ input::placeholder {
     justify-content: center;
     width: 16px;
     height: 16px;
-    border: 1px solid var(--global-color-neutral-xxx-light);
+    border: 1px solid var(--custom-option-borderColor);
     margin-right: 8px;
 }
 
-.c-custom-option__fake-input:focus .c-custom-option__symbol {       
-    box-shadow: var(--global-input-boxShadow);
+.c-custom-option:hover {
+    --custom-option-borderColor: var(--global-input-hover-borderColor);
 }
 
+.c-custom-option:focus {
+    --custom-option-borderColor: var(--global-input-focus-borderColor);
+}
+
+/* .c-option:focus .c-custom-option__fake-input {
+    border-color: var(--global-input-focus-borderColor);
+    box-shadow: var(--global-input-boxShadow);
+} */
+
 .c-custom-option__fake-input--checkbox {
-    border-radius: 3px;
+    border-radius: var(--global-borderRadius);
 }
 
 .c-custom-option__fake-input--radio {
@@ -680,12 +693,28 @@ input::placeholder {
 .c-custom-option__symbol {
     opacity: 0;
     display: block;
-    transition: opacity 0.1s;
+    transition: opacity var(--global-transitionTiming-alpha);
 }
 
 .c-option--hidden:checked + .c-custom-option .c-custom-option__symbol {
     opacity: 1;
 }
+
+
+/*
+    Component: options list
+    ---
+    Class for whitespace between options
+*/
+
+.c-option-list {
+    margin-bottom: 24px;
+}
+
+.c-option-list__item {
+    margin-bottom: 12px;
+}
+
 
 /*
     Component: Label
