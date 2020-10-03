@@ -658,16 +658,12 @@ input::placeholder {
 }
 
 .c-custom-option:hover {
-    --custom-option-borderColor: var(--global-input-hover-borderColor);
+    --custom-option-borderColor: var(--custom-option-hover-borderColor);
 }
 
-.c-custom-option:focus {
-    --custom-option-borderColor: var(--global-input-focus-borderColor);
-}
-
-.c-option:focus + .c-custom-option__fake-input {
+.c-option:focus + .c-label > .c-custom-option__fake-input {
     border-color: var(--global-input-focus-borderColor);
-    box-shadow: var(--global-input-boxShadow);
+    box-shadow: var(--global-input-focus-boxShadow);
 }
 
 .c-custom-option__fake-input--checkbox {
@@ -795,6 +791,28 @@ input::placeholder {
 .c-toggle-list__item + .c-toggle-list__item {
     padding-top: var(--global-whitespace-md);
     border-top: 1px solid var(--global-color-neutral-xxx-light);
+}
+
+
+
+/*
+    Component: custom select
+    ---
+    Class to style dropdown box
+*/
+
+.c-custom-select {
+    display: block;
+}
+
+.c-custom-select__symbol {
+    width: 24px;
+    height: 24px;
+    fill: var(--global-color-neutral-x-light);
+    position: absolute;
+    bottom: 12px;
+    right: 16px;
+    pointer-events: none;
 }
 
 
