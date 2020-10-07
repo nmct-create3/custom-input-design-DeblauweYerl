@@ -41,6 +41,17 @@
     --global-color-neutral-xxx-dark: #35374d;
     --global-color-neutral-xxxx-dark: #20223a;
 
+    --global-page-color: var(--global-color-neutral-xxxx-light);
+    --global-text-color: var(--global-color-neutral-xxxx-dark);
+    --global-card-color: var(--global-color-neutral-xxxxx-light);
+    --global-placeholder-color: var(--global-color-neutral-dark);
+    --global-label-color: var(--global-color-neutral-x-light);
+    --global-option-backgroundColor: var(--global-color-neutral-xxxxx-light);
+    --global-borderColor: var(--global-color-neutral-xxx-light);
+    --global-logo-color-x-dark: var(--global-color-neutral-xxxx-dark);
+    --global-logo-color-dark: var(--global-color-alpha-x-dark);
+    --global-logo-color: var(--global-color-alpha);
+
     /* border stuff */
     --global-borderRadius: 3px;
     --global-borderWidth: 1px;
@@ -60,12 +71,30 @@
     --global-whitespace-xxl: calc(var(--global-whitespace) * 3); /*  = 72px */
 
     /* focus and hover state */
-    --global-input-backgroundColor: White;
+    --global-input-backgroundColor: var(--global-color-neutral-xxxxx-light);
     --global-input-color: var(--global-color-neutral-xxxx-dark);
     --global-input-borderColor: var(--global-color-neutral-xxx-light);
     --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
-    --global-input-focus-borderColor: var(--global-color-alpha-x-light);
+    --global-input-focus-borderColor: var(--global-color-alpha-xxxxx-light);
     --global-input-focus-boxShadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --global-page-color: var(--global-color-neutral-xxxx-dark);
+        --global-text-color: var(--global-color-neutral-xxxxx-light);
+        --global-card-color: var(--global-color-neutral-xxx-dark);
+        --global-input-backgroundColor: var(--global-color-neutral-xxxx-dark);
+        --global-input-borderColor: var(--global-color-neutral-xxxx-dark);
+        --global-input-color: var(--global-color-neutral-xxxx-light);
+        --global-placeholder-color: var(--global-color-neutral-x-dark);
+        --global-label-color: var(--global-color-neutral-x-light);
+        --global-option-backgroundColor: var(--global-color-neutral-xxxx-dark);
+        --global-borderColor: var(--global-color-neutral-xxxx-dark);
+        --global-logo-color-x-dark: var(--global-color-neutral-xxxxx-light);
+        --global-logo-color-dark: var(--global-color-neutral-xxxxx-light);
+        --global-logo-color: var(--global-color-neutral-xxxxx-light);
+    }
 }
 
 /*------------------------------------*\
@@ -82,8 +111,8 @@ html {
     font-size: 16px;
     line-height: 1.5;
     font-family: "Inter Web", Helvetica, arial, sans-serif;
-    color: var(--global-color-neutral-xxxx-dark);
-    background-color: var(--global-color-neutral-xxxx-light);
+    color: var(--global-text-color);
+    background-color: var(--global-page-color);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;    
@@ -238,7 +267,7 @@ input {
 }
 
 input::placeholder {
-    color: var(--global-color-neutral-x-light);
+    color: var(--global-placeholder-color);
 }
 
 /*------------------------------------*\
@@ -524,15 +553,15 @@ input::placeholder {
 }
 
 .c-logo__path--1 {
-    fill: var(--global-color-neutral-xxxx-dark);
+    fill: var(--global-logo-color-x-dark);
 }
 
 .c-logo__path--2 {
-    fill: var(--global-color-alpha);
+    fill: var(--global-logo-color);
 }
 
 .c-logo__path--3 {
-    fill: var(--color-alpha-x-dark);
+    fill: var(--global-logo-color-dark);
 }
 
 /*
@@ -542,7 +571,7 @@ input::placeholder {
 */
 
 .c-card {
-    background-color: White;
+    background-color: var(--global-card-color);
     margin-bottom: var(--global-whitespace);
     border-radius: var(--global-borderRadius);
     box-shadow: 0 0 0 var(--global-borderWidth) rgba(0,0,0, 0.05), 0 2px 4px rgba(0,0,0,.075);
@@ -557,7 +586,7 @@ input::placeholder {
 
 .c-card__footer {
     text-align: center;
-    border-top: var(--global-borderWidth) solid var(--global-color-neutral-xxx-light);
+    border-top: var(--global-borderWidth) solid var(--global-borderColor);
 }
 
 .c-card__title {
@@ -654,6 +683,7 @@ input::placeholder {
     width: 16px;
     height: 16px;
     border: 1px solid var(--custom-option-borderColor);
+    background-color: var(--global-option-backgroundColor);
     margin-right: 8px;
 }
 
@@ -828,7 +858,7 @@ input::placeholder {
     font-size: 14px;
     padding-bottom: var(--global-whitespace-xs);    
     line-height: calc(var(--global-baseline) * 2);
-    color: var(--global-color-neutral-xx-dark);
+    color: var(--global-label-color);
 }
 
 .c-label--option {
