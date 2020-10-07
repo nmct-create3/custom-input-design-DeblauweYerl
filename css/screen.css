@@ -51,6 +51,9 @@
     --global-logo-color-x-dark: var(--global-color-neutral-xxxx-dark);
     --global-logo-color-dark: var(--global-color-alpha-x-dark);
     --global-logo-color: var(--global-color-alpha);
+    --global-color-focus-boxShadow: var(--global-color-alpha-x-transparent);
+    --global-color-focus-borderColor: var(--global-color-neutral-xxxxx-light);
+    --global-color-hover-borderColor: var(--global-color-neutral-xx-light);
 
     /* border stuff */
     --global-borderRadius: 3px;
@@ -74,9 +77,9 @@
     --global-input-backgroundColor: var(--global-color-neutral-xxxxx-light);
     --global-input-color: var(--global-color-neutral-xxxx-dark);
     --global-input-borderColor: var(--global-color-neutral-xxx-light);
-    --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
-    --global-input-focus-borderColor: var(--global-color-alpha-xxxxx-light);
-    --global-input-focus-boxShadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
+    --global-input-hover-borderColor: var(--global-color-hover-borderColor);
+    --global-input-focus-borderColor: var(--global-color-focus-borderColor);
+    --global-input-focus-boxShadow: 0 0 0 3px var(--global-color-focus-boxShadow);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -94,6 +97,9 @@
         --global-logo-color-x-dark: var(--global-color-neutral-xxxxx-light);
         --global-logo-color-dark: var(--global-color-neutral-xxxxx-light);
         --global-logo-color: var(--global-color-neutral-xxxxx-light);
+        --global-color-focus-boxShadow: var(--global-color-alpha-transparent);
+        --global-color-focus-borderColor: var(--global-color-alpha);
+        --global-color-hover-borderColor: var(--global-color-neutral-x-dark);
     }
 }
 
